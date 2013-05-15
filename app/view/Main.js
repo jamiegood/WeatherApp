@@ -11,6 +11,9 @@ Ext.define('WeatherApp.view.Main', {
         items:[
             {
                 xtype:'about'
+            },
+            {
+                xtype: 'weather'
             }
         ]
     }

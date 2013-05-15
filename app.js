@@ -29,7 +29,8 @@ Ext.application({
 
     views: [
         'Main',
-        'About'
+        'About',
+        'Weather'
     ],
 
     icon: {
