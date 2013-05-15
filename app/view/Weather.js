@@ -7,15 +7,41 @@ Ext.define('WeatherApp.view.Weather', {
         title:'Weather', //title on the tab button
         iconCls:'locate', //icon on the tab button
 
+        disableSelection: true,
+
         /* attach this list component to the weather store */
         store:'Weather',
 
         /* create a title bar for the tab panel */
+
+        /*
         items:{
             docked:'top',
             xtype:'titlebar',
             title:'Weather'
         },
+        */
+
+        items: [
+            {
+                docked: 'top',
+                xtype:'toolbar',
+                title:'Weather',
+                id: 'mainToolbar',
+                cls: '',
+                items: [
+
+                    {   xtype: 'spacer'   },
+                    {
+                        xtype: 'button',
+                        cls: 'refreshWeather',
+                        iconCls: 'refresh',
+                        id: 'refreshWeather'
+                    }
+
+                ]
+            }
+        ],
 
         /* markup for the data returned from the store */
         itemTpl:Ext.create('Ext.XTemplate',
@@ -47,10 +73,12 @@ Ext.define('WeatherApp.view.Weather', {
 
     initialize:function () {
         this.callParent();
+        /*
         this.getStore().load({
-            /* use config variable set in app.js */
-            url:WeatherApp.app.weatherAPI + WeatherApp.app.defaultCountry
+            // use config variable set in app.js
+            //url:WeatherApp.app.weatherAPI + WeatherApp.app.defaultCountry
         });
+        */
     }
 
 });
