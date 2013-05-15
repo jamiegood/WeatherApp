@@ -28,7 +28,7 @@ Ext.application({
     ],
 
     /* configuration openweathermap API */
-    weatherAPI: 'http://api.openweathermap.org/data/2.5/weather?q=',
+    weatherAPI: 'http://api.openweathermap.org/data/2.5/weather?units=metric&q=',
     defaultCountry: 'Dublin,ie',
 
     models: [

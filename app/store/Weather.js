@@ -14,10 +14,4 @@ Ext.define('WeatherApp.store.Weather', {
             }
         }
     }
-});/**
- * Created with JetBrains PhpStorm.
- * User: jgood
- * Date: 15/05/13
- * Time: 15:29
- * To change this template use File | Settings | File Templates.
- */
+});

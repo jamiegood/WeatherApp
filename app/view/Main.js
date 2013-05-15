@@ -10,10 +10,10 @@ Ext.define('WeatherApp.view.Main', {
         },
         items:[
             {
-                xtype:'about'
+                xtype: 'weather'
             },
             {
-                xtype: 'weather'
+                xtype:'about'
             }
         ]
     }
