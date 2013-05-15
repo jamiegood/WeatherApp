@@ -5,7 +5,7 @@ Ext.define('WeatherApp.view.Weather', {
     /* Configure the tab here */
     config:{
         title:'Weather', //title on the tab button
-        iconCls:'star', //icon on the tab button
+        iconCls:'home', //icon on the tab button
 
         /* attach this list component to the weather store */
         store:'Weather',
