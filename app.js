@@ -31,6 +31,14 @@ Ext.application({
     weatherAPI: 'http://api.openweathermap.org/data/2.5/weather?q=',
     defaultCountry: 'Dublin,ie',
 
+    models: [
+        'Weather'
+    ],
+
+    stores: [
+        'Weather'
+    ],
+
     views: [
         'Main',
         'About',
