@@ -30,6 +30,7 @@ Ext.application({
     /* configuration openweathermap API */
     weatherAPI: 'http://api.openweathermap.org/data/2.5/weather?units=metric&q=',
     defaultCountry: 'Dublin,ie',
+    openweatherimages: 'http://openweathermap.org/img/w/',
 
     models: [
         'Weather'

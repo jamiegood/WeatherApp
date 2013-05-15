@@ -23,6 +23,8 @@ Ext.define('WeatherApp.view.Weather', {
             '<h2>{name}, {[values.sys.country]}</h2>',
             '<p>Time: {[this.timeFormat(new Date())]}</p>',
             '<p>Weather: {[values.weather[0].description]}</p>',
+            '<img src="' + WeatherApp.app.openweatherimages + '{[values.weather[0].icon]}"/>',
+
             '<p>Temperature: {[values.main.temp]} &#8451;</p>',
             '<p>Humidity: {[values.main.humidity]} %</p>',
             '<p>Min Temp: {[values.main.temp_min]} &#8451;</p>',
