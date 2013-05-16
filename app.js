@@ -36,6 +36,10 @@ Ext.application({
         'Weather'
     ],
 
+    controllers: [
+        'Weather'
+    ],
+
     stores: [
         'Weather'
     ],
