@@ -73,12 +73,7 @@ Ext.define('WeatherApp.view.Weather', {
 
     initialize:function () {
         this.callParent();
-        /*
-        this.getStore().load({
-            // use config variable set in app.js
-            //url:WeatherApp.app.weatherAPI + WeatherApp.app.defaultCountry
-        });
-        */
     }
 
 });
+

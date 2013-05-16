@@ -3,10 +3,7 @@ Ext.define('WeatherApp.store.Weather', {
 
     config: {
         model: 'WeatherApp.model.Weather',
-
         autoLoad: true,
-        // pageSize: 10,
-
         proxy: {
             type: 'jsonp',
             url : WeatherApp.app.weatherAPI + WeatherApp.app.defaultCountry,
@@ -16,3 +13,4 @@ Ext.define('WeatherApp.store.Weather', {
         }
     }
 });
+
