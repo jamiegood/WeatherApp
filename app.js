@@ -47,7 +47,9 @@ Ext.application({
     views: [
         'Main',
         'About',
-        'Weather'
+        'Weather',
+				'Location',
+				'Searchbar'
     ],
 
     icon: {
