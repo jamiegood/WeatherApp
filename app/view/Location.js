@@ -8,17 +8,25 @@ Ext.define('WeatherApp.view.Location', {
       	iconCls: 'settings',
         //layout: 'card',
         items: [
+
+										{
+										    docked: 'top',
+										    xtype: 'titlebar',
+										    title: 'Location'
+										},
             {
                 //layout: 'fit',
                 //cls   : 'searchcontainer',
                 //itemId: 'searchcontainer',
                 //items: [
                  //   {
-                        docked: 'top',
+                       // docked: 'top',
                         xtype : 'searchbar'
                   //  }
                // ]
             }
+
+
         ]
     }
 });
