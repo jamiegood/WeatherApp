@@ -1,7 +1,7 @@
 Ext.define('WeatherApp.view.Location', {
     extend: 'Ext.Container',
     xtype: 'location',
-
+    requires: ['WeatherApp.view.Searchbar'],
 
     config: {
       	title: 'Location',

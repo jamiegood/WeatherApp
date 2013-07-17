@@ -33,23 +33,25 @@ Ext.application({
     openweatherimages: 'http://openweathermap.org/img/w/',
 
     models: [
-        'Weather'
+        'Weather',
+        'Location'
     ],
 
     controllers: [
-        'Weather'
+        'Weather',
+        'Location'
     ],
 
     stores: [
-        'Weather'
+        'Weather',
+        'Location'
     ],
 
     views: [
         'Main',
         'About',
         'Weather',
-				'Location',
-				'Searchbar'
+	    'Location'
     ],
 
     icon: {

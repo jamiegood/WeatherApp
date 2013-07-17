@@ -16,7 +16,14 @@ Ext.define('WeatherApp.view.Searchbar', {
             },
             {
                 xtype: 'searchfield',
-                placeHolder: 'Search...'
+                placeHolder: 'Search..ssss.',
+                enableKeyEvents: true,
+                listeners: {
+                    change: function(){
+                        // Basic alert:
+                        Ext.Msg.alert('Status', 'Changes saved successfully.');
+                    }
+                }
             }
         ]
     }
