@@ -4,11 +4,6 @@ Ext.define('WeatherApp.view.Searchbar', {
     requires: ['Ext.field.Text', 'Ext.field.Search'],
 
     config: {
-        //ui: 'searchbar',
-        //layout: 'vbox',
-        //cls: 'big',
-       // height: '4.7em',
-
         items: [
             {
                 xtype: 'title',
@@ -17,13 +12,7 @@ Ext.define('WeatherApp.view.Searchbar', {
             {
                 xtype: 'searchfield',
                 placeHolder: 'Search..ssss.',
-                enableKeyEvents: true,
-                listeners: {
-                    change: function(){
-                        // Basic alert:
-                        Ext.Msg.alert('Status', 'Changes saved successfully.');
-                    }
-                }
+                id: 'addLocationField'
             }
         ]
     }

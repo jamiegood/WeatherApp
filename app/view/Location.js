@@ -24,6 +24,12 @@ Ext.define('WeatherApp.view.Location', {
                         xtype : 'searchbar'
                   //  }
                // ]
+            },
+            {   xtype: 'spacer'   },
+            {
+                xtype: 'button',
+                text: 'Add Location',
+                id: 'addLocation'
             }
 
 

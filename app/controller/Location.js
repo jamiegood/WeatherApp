@@ -1,203 +1,133 @@
-/*
- * This controller is the main, and only controller for this application. It handles all the views and functionality
- * of this application.
+/**
+ * The class controls the adding of new Runs to the database.
  */
 Ext.define('WeatherApp.controller.Location', {
     extend: 'Ext.app.Controller',
 
     config: {
-        refs: {
-            main: {
-                selector  : 'mainview',
-                xtype     : 'mainview',
-                autoCreate: true
-            },
-            searchBar: 'searchbar',
-            searchList: 'searchlist',
-            tweetList: 'tweetlist',
-            searchField: 'searchbar > searchfield'
-        },
-
         control: {
-            searchField: {
-                keyup: 'onSearch'
-            },
-
-            tweetList: {
-                itemtap: 'onTweetTap'
-            },
-
-            searchList: {
-                select: 'onSearchSelect',
-                itemswipe: 'onSearchSwipe'
-            },
-
-            'searchlist searchlistitem button': {
-                tap: 'onSearchDelete'
+            '#addLocation': {
+                tap: 'addLocation'
             }
         }
     },
 
-    launch: function() {
-        Ext.getStore('Location').load({
-            callback: this.onLocationStoreLoad,
-            scope: this
-        });
+    init: function() {
+        this.callParent();
+				
+				console.log('AM IIII CALLLED');
+        //Ext.getStore('Location').on('load', this.onLocationLoad);
+				Ext.getStore('Location').load({
+				    callback: function(records, operation, success) {
+				        // the operation object contains all of the details of the load operation
+								console.log(' call back');
+				        console.log(records);
+				
+								console.log('//////////////////////');
+								Ext.getStore('Location').getAt(0).get('location') 
+								
+				    },
+				    scope: this
+				});
     },
 
-    /**
-     * Called when the searchesStore has been loaded from localStorage. If it is NOT a phone, it will select one of the searches
-     * from the list, now that it is loaded.
-     * We don't want to select a search when it is loaded on a phone, as it would trigger the tweetList view to display.
-     */
-    onLocationStoreLoad: function() {
-        var search = Ext.getStore('Location').getAt(0);
+    onLocationLoad: function(store) {
 
-        if (!search) {
-            //this.doSearch("sencha");
+			console.log('+++++++++++');
+			console.log(store.getData());
+      Ext.Msg.alert('Status', 'on locaiton load add .');
+
+
+/*
+        var main = Ext.getCmp('main'),
+            runList = Ext.getCmp('runList'),
+            noFriends = Ext.getCmp('noFriends');
+
+        if (store.getCount()) {
+            if (!runList) {
+                runList = Ext.create('JWF.view.run.List', {
+                    id: 'runList'
+                });
+            }
+            main.setActiveItem(runList);
+        } else {
+            if (!noFriends) {
+                noFriends = Ext.create('JWF.view.NoFriends', {
+                    id: 'noFriends',
+                    data: JWF.userData
+                });
+            }
+            main.setActiveItem(noFriends);
         }
+*/
     },
 
-    /**
-     * Called when a search is selected from the searchList. It sets the store of the tweetList to the tweets() store of the selected
-     * search isntance. If the device is a phone, we set the active item to the tweetList. If it is now, we just ensure the tweetList
-     * is visible
-     */
-    onSearchSelect: function(list, search) {
-        var store = search.tweets();
 
-        this.getTweetList().setStore(store);
-        store.load();
-    },
-
-    /**
-     * Called when an item in the searchList is swiped. It will show the delete button in the swiped item.
-     */
-    onSearchSwipe: function(dataview, index, target) {
-        if (Ext.getStore('Searches').getCount() < 2) {
-            return;
-        }
-
-        //set the currentDeleteButton so we know what is it to hide it in the listener below
-        this.currentDeleteButton = target.getDeleteButton();
-        this.currentDeleteButton.show();
-
-        //add a listener to the body, so we can hide the button if the user taps anywhere but the button.
-        Ext.getBody().on('tap', this.onBodyTap, this);
-    },
-
-    /**
-     * Called when the user taps on the body. Hides the delete button and removes the listener from the body.
-     */
-    onBodyTap: function(e) {
-        if (this.currentDeleteButton) {
-            this.currentDeleteButton.hide();
-        }
-
-        //remove the listener
-        Ext.getBody().un('tap', this.onBodyTap, this);
-    },
-
-    /**
-     * Called when a user taps on an item in the tweetList. This is used to check if the element the user tapped on is a hashtag.
-     * If it is a hashtag, we get watchever that hashtag is and call {@link #doSearch} with it.
-     * We could possibly extend this to users, too.
-     */
-    onTweetTap: function(list, index, target, record, e) {
-        target = Ext.get(e.target);
-
-        if (target && target.dom && target.hasCls('hashtag')) {
-            this.doSearch(target.dom.innerHTML);
-        }
-    },
-
-    /**
-     * Called when a use taps the delete button on a searchList item
-     */
-    onSearchDelete: function(button, e) {
-        var item   = button.getParent(),
-            search = item.getRecord();
-
-        this.fireAction('destroy', [search, button], 'doDestroy');
-    },
-
-    /**
-     * Removes a specified search record from the searches store. The tablet controller subclass has some additional
-     * logic to select the nearest saved search
-     */
-    doDestroy: function(search, button) {
-        var store = Ext.getStore('Searches');
-
-        store.remove(search);
-        store.sync();
-        button.hide();
-    },
-
-    /**
-     * Called on the keyup event of the search field. If the enter/return key was pressed, it will fire the search action.
-     */
-    onSearch: function(field, e) {
-        var keyCode = e.event.keyCode,
-            searchField = this.getSearchField();
-
-        //the return keyCode is 13.
-        if (keyCode == 13) {
-            //fire the search action with the current value of the searchField
-            this.fireAction('search', [searchField.getValue()], 'doSearch');
-        }
-    },
-
-    /**
-     * Called with the search action above. Searches twitter for a specified search term or record
-     */
-    doSearch: function(search) {
-        var model         = Twitter.model.Search,
-            tweetList     = this.getTweetList(),
-            searchList    = this.getSearchList(),
-            searchesStore = Ext.getStore('Searches'),
-            searchField   = this.getSearchField(),
-            query, index;
-
-        // ensure there is a search...
-        if (!search) {
-            return;
-        }
-
-        //ensure the tweetlist is visible
-        tweetList.show();
-
-        //check if ths search already exists in the searchesStore
-        index = searchesStore.find('query', search);
-        if (index != -1) {
-            //it exists, so lets just select it
-            search = searchesStore.getAt(index);
-
-            searchList.select(search);
-
-            //empty the field and blur it so it looses focus
-            searchField.setValue('');
-            searchField.blur();
-
-            return;
-        }
-
-        //if the passed argument is not an instance of a Search mode, create a new instance
-        if (!(search instanceof Twitter.model.Search)) {
-            query = search.replace("%20", " ");
-            search = new model({
-                query: query
+/*
+    showForm: function() {
+        if (!this.addRunForm) {
+            this.addRunForm = Ext.create('JWF.view.Form', {
+                id: 'runForm'
             });
         }
+        Ext.Viewport.setActiveItem(this.addRunForm);
+    },
 
-        //add the new search instance to the searchsStore
-        searchesStore.add(search);
-        searchesStore.sync();
+    hideForm: function() {
+        Ext.Viewport.setActiveItem(Ext.getCmp('main'));
+        Ext.getCmp('runForm').hide();
+    },
+*/
+    addLocation: function() {
 
-        // select the new record in the list
-        searchList.select(search);
+      //Ext.Msg.alert('Status', 'add location.');
+			var location = Ext.getCmp('addLocationField').getValue();
+			console.log(location);
+			
+			var locationStore = Ext.getStore('Location');
+			console.log(locationStore.getCount());
+			
+			var new_location = {location: location};
+			locationStore.add(new_location);
+			locationStore.sync();
+			
+			
+			console.log(locationStore);
+			
+			console.log(locationStore.getCount());
+			
+/*
+        var distance = Ext.getCmp('distanceField').getValue(),
+            location = Ext.getCmp('locationField').getValue(),
+            caption = JWF.userData.first_name + ' ran ' + distance + ' miles';
 
-        //empty the field and remove focus from it
-        searchField.setValue('');
-        searchField.blur();
+        if (location) {
+            caption += ' in ' + location;
+        }
+
+        Ext.getCmp('runForm').setMasked({
+            xtype: 'loadmask',
+            message: 'Adding New Jog...'
+        });
+
+        Ext.Ajax.request({
+            url: '/run',
+            method: 'POST',
+            params: {
+                location: location,
+                distance: distance
+            },
+            callback: this.onAddRun,
+            scope: this
+        });
+*/
+    },
+
+    onAddLocation: function(options, success, response) {
+	/*
+        Ext.getCmp('runForm').setMasked(false);
+        this.hideForm();
+        Ext.getStore('Runs').load();
+*/
     }
 });
