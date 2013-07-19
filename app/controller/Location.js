@@ -26,6 +26,13 @@ Ext.define('WeatherApp.controller.Location', {
 								console.log('//////////////////////');
 								Ext.getStore('Location').getAt(0).get('location') 
 								
+								
+								console.log('XXXxxxxxxxx');
+								Ext.getStore('Weather').setProxy({url: WeatherApp.app.weatherAPI + 'Dublin,ie'});
+								
+								console.log(Ext.getStore('Weather'));
+								Ext.getStore('Weather').load();
+								
 				    },
 				    scope: this
 				});

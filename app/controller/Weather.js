@@ -15,7 +15,10 @@ Ext.define('WeatherApp.controller.Weather', {
         }
 
     },
-
+		
+		init: function() {
+			console.log('weatherapp controller ');
+		},
     doRefresh: function(list, idx, el, record) {
         Ext.getStore('Weather').load();
     }
