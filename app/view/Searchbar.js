@@ -11,7 +11,7 @@ Ext.define('WeatherApp.view.Searchbar', {
             },
             {
                 xtype: 'searchfield',
-                placeHolder: 'Search..ssss.',
+                placeHolder: '',
                 id: 'addLocationField'
             }
         ]

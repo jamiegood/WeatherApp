@@ -24,13 +24,14 @@ Ext.application({
     name: 'WeatherApp',
 
     requires: [
-        'Ext.MessageBox'
+        'Ext.MessageBox',
+				'Ext.data.JsonP'
     ],
 
     /* configuration openweathermap API */
     weatherAPI: 'http://api.openweathermap.org/data/2.5/weather?units=metric&q=',
-    //defaultCountry: 'Dublin,ie',
-		defaultCountry: '',
+    defaultCountry: 'Dublin,ie',
+		//defaultCountry: '',
     openweatherimages: 'http://openweathermap.org/img/w/',
 
     models: [
@@ -75,6 +76,36 @@ Ext.application({
 
     launch: function() {
         // Destroy the #appLoadingIndicator element
+
+				console.log('App launch');
+        //Ext.getStore('Location').on('load', this.onLocationLoad);
+				// Ext.getStore('Location').load({
+				//     callback: function(records, operation, success) {
+				//         // the operation object contains all of the details of the load operation
+				// 				console.log(' call back');
+				//         console.log(records);
+				// 
+				// 				console.log('////////////////////// LOCATON FROM STORE');
+				// 				var storedLocation = Ext.getStore('Location').getAt(0).get('location');
+				// 				
+				// 				
+				// 				
+				// 				console.log(storedLocation);
+				// 				Ext.getStore('Weather').setProxy({url: WeatherApp.app.weatherAPI + storedLocation});
+				// 				
+				// 				console.log(Ext.getStore('Weather'));
+				// 				Ext.getStore('Weather').load({
+				// 					callback: function(records, operation, success) {
+				// 						console.log('inside weather callback');
+				// 						console.log(records);
+				// 						console.log(operation);
+				// 						console.log(success);
+				// 					}
+				// 				});
+				// 				
+				//     },
+				//     scope: this
+				// });
         Ext.fly('appLoadingIndicator').destroy();
 
         // Initialize the main view

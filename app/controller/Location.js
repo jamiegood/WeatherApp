@@ -14,28 +14,7 @@ Ext.define('WeatherApp.controller.Location', {
 
     init: function() {
         this.callParent();
-				
-				console.log('AM IIII CALLLED');
-        //Ext.getStore('Location').on('load', this.onLocationLoad);
-				Ext.getStore('Location').load({
-				    callback: function(records, operation, success) {
-				        // the operation object contains all of the details of the load operation
-								console.log(' call back');
-				        console.log(records);
-				
-								console.log('//////////////////////');
-								Ext.getStore('Location').getAt(0).get('location') 
-								
-								
-								console.log('XXXxxxxxxxx');
-								Ext.getStore('Weather').setProxy({url: WeatherApp.app.weatherAPI + 'Dublin,ie'});
-								
-								console.log(Ext.getStore('Weather'));
-								Ext.getStore('Weather').load();
-								
-				    },
-				    scope: this
-				});
+
     },
 
     onLocationLoad: function(store) {
@@ -93,7 +72,7 @@ Ext.define('WeatherApp.controller.Location', {
 			
 			var locationStore = Ext.getStore('Location');
 			console.log(locationStore.getCount());
-			
+			locationStore.removeAll();
 			var new_location = {location: location};
 			locationStore.add(new_location);
 			locationStore.sync();

@@ -6,7 +6,7 @@ Ext.define('WeatherApp.store.Weather', {
         //autoLoad: true,
         proxy: {
             type: 'jsonp',
-            //url : WeatherApp.app.weatherAPI + WeatherApp.app.defaultCountry,
+            url : WeatherApp.app.weatherAPI + WeatherApp.app.defaultCountry,
             reader: {
                 type: 'json'
             }

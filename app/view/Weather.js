@@ -12,16 +12,6 @@ Ext.define('WeatherApp.view.Weather', {
         /* attach this list component to the weather store */
         store:'Weather',
 
-        /* create a title bar for the tab panel */
-
-        /*
-        items:{
-            docked:'top',
-            xtype:'titlebar',
-            title:'Weather'
-        },
-        */
-
         items: [
             {
                 docked: 'top',
