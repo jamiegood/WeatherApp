@@ -1,69 +1,54 @@
 Ext.define('WeatherApp.view.Weather', {
-    extend:'Ext.List',
-    xtype:'weather',
+	extend: 'Ext.List',
+	xtype: 'weather',
 
-    /* Configure the tab here */
-    config:{
-        title:'Weather', //title on the tab button
-        iconCls:'locate', //icon on the tab button
+	/* Configure the tab here */
+	config: {
+		title: 'Weather',
+		//title on the tab button
+		iconCls: 'locate',
+		//icon on the tab button
+		disableSelection: true,
 
-        disableSelection: true,
+		/* attach this list component to the weather store */
+		store: 'Weather',
 
-        /* attach this list component to the weather store */
-        store:'Weather',
+		items: [{
+			docked: 'top',
+			xtype: 'toolbar',
+			title: 'Weather',
+			id: 'mainToolbar',
+			cls: '',
+			items: [
 
-        items: [
-            {
-                docked: 'top',
-                xtype:'toolbar',
-                title:'Weather',
-                id: 'mainToolbar',
-                cls: '',
-                items: [
+			{
+				xtype: 'spacer'
+			}, {
+				xtype: 'button',
+				cls: 'refreshWeather',
+				iconCls: 'refresh',
+				id: 'refreshWeather'
+			}
 
-                    {   xtype: 'spacer'   },
-                    {
-                        xtype: 'button',
-                        cls: 'refreshWeather',
-                        iconCls: 'refresh',
-                        id: 'refreshWeather'
-                    }
+			]
+		}],
 
-                ]
-            }
-        ],
+		/* markup for the data returned from the store */
+		itemTpl: Ext.create('Ext.XTemplate', '<div class="">', '<h2>{name}, {[values.sys.country]}</h2>', '<p>Time: {[this.timeFormat(new Date())]}</p>', '<p>Weather: {[values.weather[0].description]}</p>', '<img src="' + WeatherApp.app.openweatherimages + '{[values.weather[0].icon]}"/>',
 
-        /* markup for the data returned from the store */
-        itemTpl:Ext.create('Ext.XTemplate',
-            '<div class="">',
-            '<h2>{name}, {[values.sys.country]}</h2>',
-            '<p>Time: {[this.timeFormat(new Date())]}</p>',
-            '<p>Weather: {[values.weather[0].description]}</p>',
-            '<img src="' + WeatherApp.app.openweatherimages + '{[values.weather[0].icon]}"/>',
+		'<p>Temperature: {[values.main.temp]} &#8451;</p>', '<p>Humidity: {[values.main.humidity]} %</p>', '<p>Min Temp: {[values.main.temp_min]} &#8451;</p>', '<p>Max Temp: {[values.main.temp_max]} &#8451;</p>', '</div>', {
+			timeFormat: function(date) {
 
-            '<p>Temperature: {[values.main.temp]} &#8451;</p>',
-            '<p>Humidity: {[values.main.humidity]} %</p>',
-            '<p>Min Temp: {[values.main.temp_min]} &#8451;</p>',
-            '<p>Max Temp: {[values.main.temp_max]} &#8451;</p>',
-            '</div>',
-            {
-                timeFormat:function (date) {
+				var days = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
+				var newDate = date;
 
-                    var days = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
-                    var newDate = date;
+				return days[newDate.getDay() - 1] + " " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
+			}
+		})
+	},
 
-                    return days[newDate.getDay() - 1] + " "
-                            + newDate.getHours() + ":"
-                            + newDate.getMinutes() + ":"
-                            + newDate.getSeconds();
-                }
-            }
-        )
-    },
-
-    initialize:function () {
-        this.callParent();
-    }
+	initialize: function() {
+		this.callParent();
+	}
 
 });
-
