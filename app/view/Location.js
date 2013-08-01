@@ -16,8 +16,15 @@ Ext.define('WeatherApp.view.Location', {
 			xtype: 'spacer'
 		}, {
 			xtype: 'button',
-			text: 'Add Location',
+			text: 'Save',
 			id: 'addLocation'
+		}, {
+			xtype: 'panel',
+			html: 'Or'
+		}, {
+			xtype: 'button', 
+			text: 'Use current location',
+			id: 'currentLocation',
 		}]
 	}
 });

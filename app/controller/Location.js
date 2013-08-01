@@ -1,25 +1,19 @@
-/**
- * The class controls the adding of new Runs to the database.
- */
 Ext.define('WeatherApp.controller.Location', {
     extend: 'Ext.app.Controller',
 
     config: {
         control: {
             '#addLocation': {
-                tap: 'addLocation'
-            }
+							tap: 'addLocation'
+            },
+						'#currentLocation': {
+							tap: 'currentLocation'
+						}
         }
     },
 
     init: function() {
         this.callParent();
-
-    },
-
-    onLocationLoad: function(store) {
-
-      Ext.Msg.alert('Status', 'on locaiton load add .');
 
     },
 
@@ -35,5 +29,11 @@ Ext.define('WeatherApp.controller.Location', {
 			
 			this.getApplication().getController('Weather').doWeatherLoad();
 
-    }
+    },
+
+    currentLocation: function() {
+
+      Ext.Msg.alert('Status', 'To Do');
+
+    },
 });
