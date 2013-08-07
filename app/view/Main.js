@@ -1,20 +1,19 @@
 Ext.define('WeatherApp.view.Main', {
-    extend:'Ext.tab.Panel',
-    xtype:'main',
+	extend: 'Ext.tab.Panel',
+	xtype: 'main',
 
-    config:{
+	config: {
 
-        tabBarPosition:'bottom',
-        defaults:{
-            styleHtmlContent:true
-        },
-        items:[
-            {
-                xtype: 'weather'
-            },
-            {
-                xtype:'about'
-            }
-        ]
-    }
+		tabBarPosition: 'bottom',
+		defaults: {
+			styleHtmlContent: true
+		},
+		items: [{
+			xtype: 'weather'
+		}, {
+			xtype: 'location'
+		}, {
+			xtype: 'about'
+		}]
+	}
 });
