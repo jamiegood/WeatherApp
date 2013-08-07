@@ -4,11 +4,11 @@ Ext.define('WeatherApp.controller.Location', {
     config: {
         control: {
             '#addLocation': {
-							tap: 'addLocation'
+                tap: 'addLocation'
             },
-						'#currentLocation': {
-							tap: 'currentLocation'
-						}
+            '#currentLocation': {
+                tap: 'currentLocation'
+            }
         }
     },
 
@@ -19,21 +19,27 @@ Ext.define('WeatherApp.controller.Location', {
 
     addLocation: function() {
 
-			var location = Ext.getCmp('addLocationField').getValue();
-			
-			var locationStore = Ext.getStore('Location');
-			locationStore.removeAll();
-			var new_location = {location: location};
-			locationStore.add(new_location);
-			locationStore.sync();
-			
-			this.getApplication().getController('Weather').doWeatherLoad();
+        var location = Ext.getCmp('addLocationField').getValue();
+        if (location === '') {
+            Ext.Msg.alert('Status', 'Please enter a location');
+        } else {
+
+            var locationStore = Ext.getStore('Location');
+            locationStore.removeAll();
+            var new_location = {
+                location: location
+            };
+            locationStore.add(new_location);
+            locationStore.sync();
+
+            this.getApplication().getController('Weather').doWeatherLoad();
+        }
 
     },
 
     currentLocation: function() {
 
-      Ext.Msg.alert('Status', 'To Do');
+        Ext.Msg.alert('Status', 'To Do');
 
     },
 });
