@@ -4,7 +4,7 @@ Ext.define('WeatherApp.store.Location', {
         model: 'WeatherApp.model.Location',
         autoLoad: true,
         proxy: {
-					type: 'localstorage'
+            type: 'localstorage'
         }
     }
 });
