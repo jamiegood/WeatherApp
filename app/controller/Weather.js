@@ -35,7 +35,7 @@ Ext.define('WeatherApp.controller.Weather', {
         }
 
         var mystore = Ext.getStore('Weather').setProxy({
-            url: WeatherApp.util.Config.weatherAPI + storedLocation
+            url: WeatherApp.util.Config.getWeatherAPI() + storedLocation
         });
         mystore.load({
             callback: function(records, operation, success) {
