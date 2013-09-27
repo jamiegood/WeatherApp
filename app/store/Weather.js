@@ -6,7 +6,8 @@ Ext.define('WeatherApp.store.Weather', {
         //autoLoad: true,
         proxy: {
             type: 'jsonp',
-            url : WeatherApp.app.weatherAPI + WeatherApp.app.defaultCountry,
+            url : WeatherApp.util.Config.getWeatherAPI() + WeatherApp.util.Config.getDefaultCountry(),
+            //url: 'http://api.openweathermap.org/data/2.5/weather?units=metric&q=Dublin,ie',
             reader: {
                 type: 'json'
             }

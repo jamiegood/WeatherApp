@@ -15,34 +15,36 @@ Ext.define('WeatherApp.controller.Weather', {
         }
 
     },
-		
-		init: function() {
-			this.callParent();
-			this.doWeatherLoad();			
-			
-		},
-    doRefresh: function(list, idx, el, record) {
-			this.doWeatherLoad();			
+
+    init: function() {
+        this.callParent();
+        this.doWeatherLoad();
+
     },
-		doWeatherLoad: function() {
-			
-			var storedLocation;
+    doRefresh: function(list, idx, el, record) {
+        this.doWeatherLoad();
+    },
+    doWeatherLoad: function() {
 
-			if(Ext.getStore('Location').getCount() == 0) {
-				storedLocation = WeatherApp.app.defaultCountry;
-			} else {
-				storedLocation = Ext.getStore('Location').getAt(0).get('location');
-			}
-			
-			var mystore = Ext.getStore('Weather').setProxy({url: WeatherApp.app.weatherAPI + storedLocation});
-			mystore.load({
-				callback: function(records, operation, success) {
-					console.log(records);
-					console.log(operation);
-					console.log(success);
-				}
-			});
+        var storedLocation;
 
-		}
-		
+        if (Ext.getStore('Location').getCount() == 0) {
+            storedLocation = WeatherApp.util.Config.defaultCountry;
+        } else {
+            storedLocation = Ext.getStore('Location').getAt(0).get('location');
+        }
+
+        var mystore = Ext.getStore('Weather').setProxy({
+            url: WeatherApp.util.Config.getWeatherAPI() + storedLocation
+        });
+        mystore.load({
+            callback: function(records, operation, success) {
+                console.log(records);
+                console.log(operation);
+                console.log(success);
+            }
+        });
+
+    }
+
 });
