@@ -10,8 +10,8 @@ Ext.define('WeatherApp.view.About', {
 		/* Create a title bar for the tab panel */
 		items: {
 			docked: 'top',
-			xtype: 'titlebar',
-			title: 'About'
+			xtype: 'toolbar',
+			title: 'About why not show'
 		}
 	},
 

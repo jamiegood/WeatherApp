@@ -16,7 +16,7 @@ Ext.define('WeatherApp.view.Weather', {
 		items: [{
 			docked: 'top',
 			xtype: 'toolbar',
-			title: 'Weather',
+			title: 'Weatherss',
 			id: 'mainToolbar',
 			cls: '',
 			items: [

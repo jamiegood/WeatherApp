@@ -8,7 +8,7 @@ Ext.define('WeatherApp.view.Location', {
 		iconCls: 'settings',
 		items: [{
 			docked: 'top',
-			xtype: 'titlebar',
+			xtype: 'toolbar',
 			title: 'Location'
 		}, {
 			xtype: 'searchbar'
