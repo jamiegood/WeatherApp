@@ -1,4 +1,0 @@
-WeatherApp
-==========
-
-Branch InputWeatherLocation
