@@ -27,13 +27,13 @@ Ext.application({
 
 	//defaultCountry: '',
 
-	models: ['Weather', 'Location'],
+	models: ['WeatherToday', 'Location'],
 
-	controllers: ['Weather', 'Location'],
+	controllers: ['WeatherToday', 'Location'],
 
-	stores: ['Weather', 'Location'],
+	stores: ['WeatherToday', 'Location'],
 
-	views: ['Main', 'About', 'Weather', 'Location'],
+	views: ['Main', 'About', 'WeatherToday', 'Forecast', 'Location'],
 
 	icon: {
 		'57': 'resources/icons/Icon.png',

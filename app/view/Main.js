@@ -9,7 +9,9 @@ Ext.define('WeatherApp.view.Main', {
 			styleHtmlContent: true
 		},
 		items: [{
-			xtype: 'weather'
+			xtype: 'weatherToday'
+		}, {
+			xtype: 'forecast'
 		}, {
 			xtype: 'location'
 		}, {
