@@ -5,7 +5,7 @@ Ext.define('WeatherApp.controller.Forecast', {
     config: {
 
         refs: {
-            refreshBtn: '#refreshWeather'
+            refreshBtn: '#refreshForecast'
         },
 
         control: {
@@ -17,11 +17,15 @@ Ext.define('WeatherApp.controller.Forecast', {
     },
 
     init: function() {
+
+        console.log('init in forefacst js');
         this.callParent();
         this.doWeatherLoad();
 
     },
     doRefresh: function(list, idx, el, record) {
+
+        console.log('who are  you');
         this.doWeatherLoad();
     },
     doWeatherLoad: function() {
@@ -34,9 +38,12 @@ Ext.define('WeatherApp.controller.Forecast', {
             storedLocation = Ext.getStore('Location').getAt(0).get('location');
         }
 
-        var mystore = Ext.getStore('WeatherToday').setProxy({
+        var mystore = Ext.getStore('Forecast').setProxy({
             url: WeatherApp.util.Config.getWeatherAPI() + storedLocation
         });
+
+        console.log('--------------');
+        console.log(storedLocation);
         mystore.load({
             callback: function(records, operation, success) {
                 console.log(records);

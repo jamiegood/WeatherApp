@@ -27,11 +27,11 @@ Ext.application({
 
 	//defaultCountry: '',
 
-	models: ['WeatherToday', 'Location'],
+	models: ['WeatherToday', 'Location', 'Forecast'],
 
-	controllers: ['WeatherToday', 'Location'],
+	controllers: ['WeatherToday', 'Location', 'Forecast'],
 
-	stores: ['WeatherToday', 'Location'],
+	stores: ['WeatherToday', 'Location', 'Forecast'],
 
 	views: ['Main', 'About', 'WeatherToday', 'Forecast', 'Location'],
 

@@ -16,8 +16,8 @@ Ext.define('WeatherApp.view.Forecast', {
 		items: [{
 			docked: 'top',
 			xtype: 'toolbar',
-			title: '5 Day Forecast',
-			id: 'mainToolbar',
+			title: '5 Day Forecastxx',
+			id: 'mainToolbar2',
 			cls: '',
 			items: [
 
@@ -27,7 +27,7 @@ Ext.define('WeatherApp.view.Forecast', {
 				xtype: 'button',
 				cls: 'refreshWeather',
 				iconCls: 'refresh',
-				id: 'refreshWeather'
+				id: 'refreshForecast'
 			}
 
 			]

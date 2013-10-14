@@ -22,6 +22,8 @@ Ext.define('WeatherApp.controller.WeatherToday', {
 
     },
     doRefresh: function(list, idx, el, record) {
+
+        console.log('[[[[[[[[[[[[[[[[[[[[[[[');
         this.doWeatherLoad();
     },
     doWeatherLoad: function() {
