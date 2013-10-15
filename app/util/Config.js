@@ -6,17 +6,28 @@ Ext.define('WeatherApp.util.Config', {
         base: 'http://api.openweathermap.org/data/2.5/', 
         daily: 'weather?units=metric&q=',
         fiveDay: 'forecast/?mode=json&units=metric&cnt=5&daily&q=',
-    	defaultCountry: 'Dublin,ie',
+    	country: 'Dublin,ie',
     },
     constructor: function(config) {
         this.initConfig(config);
         this.callParent([config]);
+
     },
-    daily: function() {
+    getWeatherTodayAPI: function() {
+
+        console.log(this.config.base + this.config.daily + this.config.country)
+        return this.config.base + this.config.daily + this.config.country;
 
     }, 
-    forecast: function() {
-        
+    getWeatherForecastAPI: function() {
+        console.log(this.config.base + this.config.fiveDay + this.config.country);
+        return this.config.base + this.config.fiveDay + this.config.country;
+    },
+    setCountry: function(location) {
+        this.config.country = location;
+    },
+    getCountry: function() {
+        return this.config.country;
     }
 
 })
