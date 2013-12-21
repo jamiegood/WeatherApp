@@ -33,22 +33,26 @@ Ext.define('WeatherApp.controller.Forecast', {
         var storedLocation;
 
         if (Ext.getStore('Location').getCount() == 0) {
-            storedLocation = WeatherApp.util.Config.defaultCountry;
+            storedLocation = WeatherApp.util.Config.getCountry();
         } else {
             storedLocation = Ext.getStore('Location').getAt(0).get('location');
+            WeatherApp.util.Config.setCountry(storedLocation);
         }
 
         var mystore = Ext.getStore('Forecast').setProxy({
-            url: WeatherApp.util.Config.getWeatherForecastAPI() + storedLocation
+            url: WeatherApp.util.Config.getWeatherForecastAPI()
         });
 
-        console.log('--------------');
-        console.log(storedLocation);
+        console.log('Forecast getWeatherForecastAPI --------------');
+        console.log(WeatherApp.util.Config.getWeatherForecastAPI());
         mystore.load({
             callback: function(records, operation, success) {
+                console.log('STAT TTTtTTTTTTTTTTTTTTTTTTT');
                 console.log(records);
                 console.log(operation);
                 console.log(success);
+                console.log('END TTTtTTTTTTTTTTTTTTTTTTT');
+
             }
         });
 
