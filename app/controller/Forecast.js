@@ -18,9 +18,9 @@ Ext.define('WeatherApp.controller.Forecast', {
 
     init: function() {
 
-        console.log('init in forefacst js');
-        this.callParent();
-        this.doWeatherLoad();
+        //console.log('init in forefacst js');
+        //this.callParent();
+        //this.doWeatherLoad();
 
     },
     doRefresh: function(list, idx, el, record) {
@@ -47,11 +47,11 @@ Ext.define('WeatherApp.controller.Forecast', {
         console.log(WeatherApp.util.Config.getWeatherForecastAPI());
         mystore.load({
             callback: function(records, operation, success) {
-                console.log('STAT TTTtTTTTTTTTTTTTTTTTTTT');
+                console.log('STAT getWeatherForecastAPI');
                 console.log(records);
                 console.log(operation);
                 console.log(success);
-                console.log('END TTTtTTTTTTTTTTTTTTTTTTT');
+                console.log('END getWeatherForecastAPI');
 
             }
         });

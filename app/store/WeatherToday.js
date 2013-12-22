@@ -10,7 +10,7 @@ Ext.define('WeatherApp.store.WeatherToday', {
             //url: 'http://api.openweathermap.org/data/2.5/weather?units=metric&q=Dublin,ie',
             reader: {
                 type: 'json',
-                root: 'list'
+                //root: 'list'
             }
         }
     }

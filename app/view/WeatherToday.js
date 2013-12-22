@@ -34,14 +34,14 @@ Ext.define('WeatherApp.view.WeatherToday', {
 		}],
 
 		/* markup for the data returned from the store */
-		itemTpl: Ext.create('Ext.XTemplate', '<div class="">', '<h2>{name}, {[values.sys.country]}</h2>', '<p>Time: {[this.timeFormat(new Date())]}</p>', '<p>Weather: {[values.weather[0].description]}</p>', '<img src="' + WeatherApp.util.Config.getOpenweatherimages() + '{[values.weather[0].icon]}"/>',
+		itemTpl: Ext.create('Ext.XTemplate', '<div class="">', '<h2>sssss {name},</h2>', '<p>Time: {[this.timeFormat(new Date())]}</p>', '<p>Weather: {[values.weather[0].description]}</p>', '<img src="' + WeatherApp.util.Config.getOpenweatherimages() + '{[values.weather[0].icon]}"/>',
 
 		'<p>Temperature: {[values.main.temp]} &#8451;</p>', '<p>Humidity: {[values.main.humidity]} %</p>', '<p>Min Temp: {[values.main.temp_min]} &#8451;</p>', '<p>Max Temp: {[values.main.temp_max]} &#8451;</p>', '</div>', {
 			timeFormat: function(date) {
 
 				var days = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
 				var newDate = date;
-
+                alert('fdsfdsfs');
 				return days[newDate.getDay() - 1] + " " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
 			}
 		})

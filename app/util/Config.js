@@ -6,7 +6,7 @@ Ext.define('WeatherApp.util.Config', {
         base: 'http://api.openweathermap.org/data/2.5/', 
         daily: 'weather?units=metric&q=',
         fiveDay: 'forecast/?mode=json&units=metric&cnt=5&daily&q=',
-    	country: 'Dublin,ie',
+    	country: 'Dublin,ie'
     },
     constructor: function(config) {
         this.initConfig(config);

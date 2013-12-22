@@ -11,8 +11,6 @@ Ext.define('WeatherApp.view.Main', {
 		items: [{
 			xtype: 'weatherToday'
 		}, {
-			xtype: 'forecast'
-		}, {
 			xtype: 'location'
 		}, {
 			xtype: 'about'
