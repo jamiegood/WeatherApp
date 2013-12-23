@@ -41,7 +41,7 @@ Ext.define('WeatherApp.view.WeatherToday', {
 
 				var days = ['Mon', 'Tues', 'Wed', 'Thurs', 'Fri', 'Sat', 'Sun'];
 				var newDate = date;
-                alert('fdsfdsfs');
+ 
 				return days[newDate.getDay() - 1] + " " + newDate.getHours() + ":" + newDate.getMinutes() + ":" + newDate.getSeconds();
 			}
 		})
