@@ -18,14 +18,13 @@ Ext.define('WeatherApp.controller.Forecast', {
 
     init: function() {
 
-        //console.log('init in forefacst js');
-        //this.callParent();
-        //this.doWeatherLoad();
+        console.log('init in forefacst js');
+        this.callParent();
+        this.doWeatherLoad();
 
     },
     doRefresh: function(list, idx, el, record) {
 
-        console.log('who are  you');
         this.doWeatherLoad();
     },
     doWeatherLoad: function() {

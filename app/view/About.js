@@ -4,7 +4,7 @@ Ext.define('WeatherApp.view.About', {
 
 	/* Configure the tab here */
 	config: {
-		title: 'About',
+		title: 'Aboutz',
 		iconCls: 'settings',
 
 		/* Create a title bar for the tab panel */

@@ -13,12 +13,15 @@
       "update": "delta"
     }
   ],
+
   "css": [
     {
-      "path": "resources/css/app.css",
+      "path": "touch/resources/css/wp.css",
       "update": "delta"
     }
   ],
+
+
   "appCache": {
     "cache": [
       "index.html"
