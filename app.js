@@ -18,6 +18,8 @@ Ext.Loader.setPath({
 	'WeatherApp': 'app'
 });
 //</debug>
+
+
 Ext.application({
 	name: 'WeatherApp',
 

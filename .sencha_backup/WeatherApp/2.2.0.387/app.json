@@ -1,4 +1,5 @@
 {
+
     /**
      * The application's namespace, used by Sencha Command to generate classes
      */
@@ -41,6 +42,10 @@
     "js": [
         {
             "path": "touch/sencha-touch.js",
+            "x-bootstrap": true
+        },
+        {
+            "path": "bootstrap.js",
             "x-bootstrap": true
         },
         {
@@ -95,31 +100,15 @@
         "fallback": []
     },
 
-    /**
-     * Extra resources to be copied along when build
-     */
-    "resources": [
-        "resources/images",
-        "resources/icons",
-        "resources/startup"
-    ],
-
-    /**
-     * File / directory name matchers to ignore when copying to the builds, must be valid regular expressions
-     */
-    "ignore": [
-        "\.svn$"
-    ],
-
-    /**
-     * Directory path to store all previous production builds. Note that the content generated inside this directory
-     * must be kept intact for proper generation of deltas between updates
-     */
-    "archivePath": "archive",
-
-    /**
-     * Uniquely generated id for this application, used as prefix for localStorage keys.
-     * Normally you should never change this value.
-     */
-    "id": "ee8981ae-e4c6-4b6e-bf69-b55cebcbd9da"
+  "resources": [
+    "resources/images",
+    "resources/icons",
+    "resources/startup"
+  ],
+  "ignore": [
+    ".svn$"
+  ],
+  "archivePath": "archive",
+  "requires": [],
+  "id": "ee8981ae-e4c6-4b6e-bf69-b55cebcbd9da"
 }

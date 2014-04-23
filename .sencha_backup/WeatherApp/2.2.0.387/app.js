@@ -18,24 +18,24 @@ Ext.Loader.setPath({
 	'WeatherApp': 'app'
 });
 //</debug>
+
+
 Ext.application({
 	name: 'WeatherApp',
 
-	requires: ['Ext.MessageBox', 'Ext.data.JsonP'],
+	requires: ['Ext.MessageBox', 'Ext.data.JsonP', 'WeatherApp.util.Config'],
 
 	/* configuration openweathermap API */
-	weatherAPI: 'http://api.openweathermap.org/data/2.5/weather?units=metric&q=',
-	defaultCountry: 'Dublin,ie',
+
 	//defaultCountry: '',
-	openweatherimages: 'http://openweathermap.org/img/w/',
 
-	models: ['Weather', 'Location'],
+	models: ['WeatherToday', 'Location', 'Forecast'],
 
-	controllers: ['Weather', 'Location'],
+	controllers: ['WeatherToday', 'Location', 'Forecast'],
 
-	stores: ['Weather', 'Location'],
+	stores: ['WeatherToday', 'Location', 'Forecast'],
 
-	views: ['Main', 'About', 'Weather', 'Location'],
+	views: ['Main', 'About', 'WeatherToday', 'Forecast', 'Location'],
 
 	icon: {
 		'57': 'resources/icons/Icon.png',
