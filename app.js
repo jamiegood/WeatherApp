@@ -10,6 +10,7 @@
     will need to resolve manually.
 */
 
+
 // DO NOT DELETE - this directive is required for Sencha Cmd packages to work.
 //@require @packageOverrides
 //<debug>
@@ -18,6 +19,7 @@ Ext.Loader.setPath({
 	'WeatherApp': 'app'
 });
 //</debug>
+
 Ext.application({
 	name: 'WeatherApp',
 
