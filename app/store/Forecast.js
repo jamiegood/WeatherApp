@@ -8,7 +8,8 @@ Ext.define('WeatherApp.store.Forecast', {
             type: 'jsonp',
             url : WeatherApp.util.Config.getWeatherForecastAPI(),
             reader: {
-                type: 'json'
+                type: 'json',
+                rootProperty: 'list'
             }
         }
     }
